@@ -1,0 +1,239 @@
+/*===== browser reset =====*/
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote::before, blockquote::after,
+q::before, q::after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*===== custom global styles =====*/
+
+/*to add padding and borders etc inside elements not outside so % size works properly*/
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+/*to clear floats*/
+.clearfix::before, .clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/*===== custom styles =====*/
+body {
+	font-family: "Helvetica Neue", Arial, sans-serif;
+	font-weight: 200;
+	line-height: 1.2; /*space between lines in text*/
+
+}
+header {
+	background-color: hsl(202, 91%, 87%);
+	overflow: hidden; /*eliminates border created by margin collaps with header img*/
+}
+header img {
+	display: block; /*margin auto works for block elements only*/
+	width: 200px;
+	margin: 10px auto;
+	background-color: hsl(0,0%,100%);
+	padding: 10px;
+}
+header li {
+	display: inline-block;
+	width: 25%;
+	float: left;
+	text-align: center;
+	padding: 10px 20px;
+}
+header li a {
+	position: relative;
+	display: block;
+	padding: 10px 0;
+	background-color: hsl(203, 94%, 80%);
+	border: 1px solid hsl(203, 94%, 70%);
+	border-radius: 5px;
+	color: hsl(0,0%,100%);
+	text-decoration: none;
+	transition: all 500ms ease-out;
+	overflow: hidden;
+}
+header li a:hover {
+	background-color: hsl(103, 94%, 75%);
+	border: 1px solid hsl(103, 94%, 65%);
+}
+
+/*++++++++++++++++++++++++++++++++++++*/
+.shine::after {
+	content:"";
+	position: absolute; /*with that position we can set top and bottom, left and right*/
+	top: -50px;
+	right: -50px;
+	bottom: -50px;
+	left: -50px;
+	background-image: linear-gradient(to bottom, rgba(229,172,142,0),rgba(255,255,255,.5),rgba(229,172,142,0));
+	transform: rotateZ(60deg) translate(-5em, 8.5em);
+	-webkit-transform: rotateZ(60deg) translate(-5em, 8.5em);
+}
+.shine:hover::after, .shine:focus::after {
+	animation: sheen 1s forwards;
+	-webkit-animation: sheen 1s forwards;
+}
+@keyframes sheen {
+	/*0% {
+		transform: rotateZ(60deg) translate(-5em, 8.5em);  / can add keyframe for % in between /
+	}*/
+	100% {
+		transform: rotateZ(60deg) translate(1em, -5em);
+	}
+}
+@-webkit-keyframes sheen {
+	/*0% {
+		transform: rotateZ(60deg) translate(-5em, 8.5em); / can add keyframe for % in between /
+	}*/
+	100% {
+		transform: rotateZ(60deg) translate(1em, -5em);
+	}
+}
+/*++++++++++++++++++++++++++++++++++++*/
+.shineb::after {
+	content:"";
+	position: absolute; /*with that position we can set top and bottom, left and right*/
+	top: -50px;
+	right: -50px;
+	bottom: -50px;
+	left: -50px;
+	background-image: linear-gradient(to bottom, rgba(229,172,142,0),rgba(255,255,255,.5),rgba(229,172,142,0));
+	transform: rotateZ(60deg) translate(-5em, 8.5em);
+	-webkit-transform: rotateZ(60deg) translate(-5em, 8.5em);
+}
+.shineb:hover::after, .shineb:focus::after {
+	animation: sheenb 1s backwards;
+	-webkit-animation: sheenb 1s backwards;
+}
+@keyframes sheenb {
+	/*0% {
+		transform: rotateZ(60deg) translate(-5em, 8.5em);  / can add keyframe for % in between /
+	}*/
+	100% {
+		transform: rotateZ(60deg) translate(1em, -5em);
+	}
+}
+@-webkit-keyframes sheenb {
+	/*0% {
+		transform: rotateZ(60deg) translate(-5em, 8.5em); / can add keyframe for % in between /
+	}*/
+	100% {
+		transform: rotateZ(60deg) translate(1em, -5em);
+	}
+}
+/*++++++++++++++++++++++++++++++++++++*/
+.hero {
+	background-color: hsl(300, 91%, 87%);
+	height: 300px;
+	background-image: url("../img/sky.jpg");
+	background-size: cover;
+	background-position: center; /*image will resize around thic area/corner instead top left*/
+}
+main {
+	background-color: hsl(0, 0%, 92%);
+	position: relative;
+} 
+main img {
+	position: absolute; /*position is based on nearest relative div.(body by default)declaring it for main positions img in relation to main*/
+	top: 20px;
+	left: 15%;
+	z-index: 1;
+	width: 25%;
+	border-radius: 50%;
+	/*-ms-transition: left 150ms ease-in-out;*/ /*ie*/
+	/*-o-transition: left 150ms ease-in-out;*/ /*opera*/
+	/*-moz-transition: left 150ms ease-in-out;*/ /*mozilla*/
+	/*-webkit-transition: left 150ms ease-in-out;*/ /*safari?/chrome*/
+	transition: left 250ms ease-in-out;/* moving transition here will apply it to hover and hover out*/
+}
+main img:hover {
+	left: 5%;
+}
+article {
+	position: relative; /*necessary to position top, left, bottom, right and add z index*/
+	z-index: 2;
+	width: 75%;
+	float: right;
+	background-color: white;
+	padding: 0 20px 40px 20px;
+	margin-bottom: 60px;
+	margin-right: 5%;
+}
+article::before {
+	content: "";
+	display: block;
+	background-color: hsl(0,0%,100%);
+	width: 100%;
+	height: 100px;
+	position: absolute;
+	top: -100px;
+	left: 0;
+	background-image: url(../img/mail.png);
+	background-repeat: repeat-x;
+}
+h1 {
+	font-size: 40px;
+	margin-bottom: 40px;
+}
+p {
+	font-size: 20px;
+	margin: 10px 0;
+}
+h2 {
+	font-size: 30px;
+	margin: 20px 0;
+	text-align: right;
+}
+footer {
+	background-color: hsl(0, 0%, 19%);
+	padding: 20px;
+	color: white;
+}
+footer p {
+	font-size: 80%;
+}

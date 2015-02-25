@@ -1,0 +1,14 @@
+$color: hsl(700, 60, 90); 
+
+header {
+	background-color: $color;
+}
+main {
+	background-color: complement($color);
+	article {
+		background-color: transparentize(complement($color),.2);
+	}
+	p {
+		color: darken($color, 10%);
+	}
+}
